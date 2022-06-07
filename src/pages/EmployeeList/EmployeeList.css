@@ -1,0 +1,23 @@
+.employeeListMain {
+  margin: 2em 6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employeeListMain h1 {
+  color: #4c4c4e;
+  width: 17em;
+  height: 1em;
+  border-bottom: solid 2px #4c4c4e;
+}
+
+@media (max-width: 920px) {
+  .employeeListMain {
+    margin: 0em 2em;
+  }
+
+  .employeeListMain h1 {
+    width: 12em;
+  }
+}
