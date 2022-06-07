@@ -1,0 +1,79 @@
+.createEmployeeForm {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 1em 5em;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0.5em 0em;
+}
+
+.formField label {
+  text-align: left;
+  color: #4c4c4e;
+  font-weight: 500;
+}
+
+.formField input {
+  height: 1.5em;
+}
+
+.formField select {
+  height: 2.2em;
+  border-radius: 2px;
+  border: solid 1px gray;
+}
+
+.addressField {
+  width: 100%;
+  margin: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.addressField .formField {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  margin: 0.5em 0em;
+}
+
+.line-break {
+  width: 100%;
+}
+
+.formSubmitBtn {
+  width: 10em;
+  margin: 2em;
+  padding: 0.5em;
+  background-color: #45818e;
+  color: white;
+  font-size: 1em;
+  font-weight: 500;
+  float: left;
+}
+
+@media (max-width: 920px) {
+  .createEmployeeForm {
+    width: 90%;
+  }
+
+  .formField {
+    width: 100%;
+  }
+
+  .addressField {
+    width: 100%;
+    margin: 1em 0em;
+  }
+
+  .addressField .formField {
+    width: 100%;
+  }
+}
