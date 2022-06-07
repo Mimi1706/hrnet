@@ -70,7 +70,6 @@ const CreateEmployeeForm = () => {
             name="state"
             defaultValue=""
             onChange={handleInput}
-            required
           >
             <option disabled value="">
               Please Select
@@ -150,7 +149,6 @@ const CreateEmployeeForm = () => {
           name="department"
           defaultValue=""
           onChange={handleInput}
-          required
         >
           <option disabled value="">
             Please Select
