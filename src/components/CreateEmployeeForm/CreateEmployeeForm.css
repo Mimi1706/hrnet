@@ -21,6 +21,8 @@
 
 .formField input {
   height: 1.5em;
+  border-radius: 2px;
+  border: solid 1px gray;
 }
 
 .formField select {
