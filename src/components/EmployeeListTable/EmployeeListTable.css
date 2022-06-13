@@ -1,16 +1,46 @@
+.show-search {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -2em;
+}
+
+.show-select {
+  margin: 0 1em;
+}
+
 table {
   margin: 2em 0em;
+  width: 100%;
   border-spacing: 0px 9px;
   border-collapse: collapse;
 }
 
 th {
   padding: 1.5em;
+  padding-right: 2em;
   font-size: 0.9em;
   font-weight: 500;
   background-color: #45818e;
   color: white;
   font-weight: 600;
+  position: relative;
+  cursor: pointer;
+}
+
+.arrows {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 30%;
+  right: 8%;
+  font-size: 0.8em;
+  pointer-events: none;
+  color: #23454d;
+}
+
+.arrow-selected {
+  color: white;
 }
 
 tr {
@@ -19,4 +49,10 @@ tr {
 
 td {
   padding: 0.8em;
+}
+
+@media (max-width: 1024px) {
+  .show-search {
+    margin-top: 0em;
+  }
 }

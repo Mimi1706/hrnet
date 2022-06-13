@@ -10,7 +10,7 @@ const CreateEmployeeForm = () => {
   const [employee, setEmployee] = useState({
     firstName: "",
     lastName: "",
-    birthDate: "",
+    dateOfBirth: "",
     startDate: "",
     street: "",
     city: "",
@@ -43,7 +43,7 @@ const CreateEmployeeForm = () => {
 
       <div className="formField">
         <label>Date of birth </label>
-        <input type="date" name="birthDate" onChange={handleInput} />
+        <input type="date" name="dateOfBirth" onChange={handleInput} />
       </div>
 
       <div className="formField">
