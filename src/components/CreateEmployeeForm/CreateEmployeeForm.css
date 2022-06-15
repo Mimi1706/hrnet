@@ -1,4 +1,4 @@
-.createEmployeeForm {
+.create-employee-form {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -6,26 +6,26 @@
   margin: 1em 5em;
 }
 
-.formField {
+.form-field {
   display: flex;
   flex-direction: column;
   width: 40%;
   margin: 0.5em 0em;
 }
 
-.formField label {
+.form-field label {
   text-align: left;
   color: #4c4c4e;
   font-weight: 500;
 }
 
-.formField input {
+.form-field input {
   height: 1.5em;
   border-radius: 2px;
   border: solid 1px gray;
 }
 
-.formField select {
+.form-field select {
   height: 2.2em;
   border-radius: 2px;
   border: solid 1px gray;
@@ -39,7 +39,7 @@
   justify-content: space-between;
 }
 
-.addressField .formField {
+.addressField .form-field {
   display: flex;
   flex-direction: column;
   width: 45%;
@@ -50,7 +50,7 @@
   width: 100%;
 }
 
-.formSubmitBtn {
+.form-submit-btn {
   width: 10em;
   margin: 2em;
   padding: 0.5em;
@@ -62,11 +62,11 @@
 }
 
 @media (max-width: 920px) {
-  .createEmployeeForm {
+  .create-employee-form {
     width: 90%;
   }
 
-  .formField {
+  .form-field {
     width: 100%;
   }
 
@@ -75,7 +75,7 @@
     margin: 1em 0em;
   }
 
-  .addressField .formField {
+  .addressField .form-field {
     width: 100%;
   }
 }

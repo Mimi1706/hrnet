@@ -36,9 +36,8 @@ const EmployeeListTable = () => {
     { label: "Zip code", accessor: "zipCode" },
   ]
 
-  // Sorts by ascending or descending
   const handleAscending = (accessor) => {
-    if (order === false || order === null) {
+    if (order === false || order === null || selectedField !== accessor) {
       setSelectedField(accessor)
       setOrder(true)
       setSortedData(
@@ -53,7 +52,7 @@ const EmployeeListTable = () => {
   }
 
   const handleDescending = (accessor) => {
-    if (order === true || order === null) {
+    if (order === true || order === null || selectedField !== accessor) {
       setSelectedField(accessor)
       setOrder(false)
       setSortedData(
@@ -92,16 +91,6 @@ const EmployeeListTable = () => {
     setSortedData(sortedInput)
   }
 
-  const handleShowAllEntries = () => {
-    setSelectedEntry(null) // resets "show ** entries" number
-    setOrder(null) // resets order ascending/descending
-    setSortedData(employeeList) //
-    setAllEntries(null) // clears the chunks
-    setPage(0) // resets page number
-    setPreviousEntries(1) // resets previous entries number
-    setCurrentEntries(employeeList.length) // resets current entries number
-  }
-
   const handleShowEntries = (entries) => {
     setOrder(null) // Resets ascending/descending
     setSelectedEntry(entries) // Saves the number picked in show entries
@@ -121,12 +110,23 @@ const EmployeeListTable = () => {
       let chunk = employeeList.slice(i, i + entries)
       allChunks.push(chunk)
     }
+
     setSortedData(allChunks[0])
     setAllEntries(allChunks)
   }
 
+  const handleShowAllEntries = () => {
+    setSelectedEntry(null) // resets "show ** entries" number
+    setOrder(null) // resets order ascending/descending
+    setSortedData(employeeList) //
+    setAllEntries(null) // clears the chunks
+    setPage(0) // resets page number
+    setPreviousEntries(1) // resets previous entries number
+    setCurrentEntries(employeeList.length) // resets current entries number
+  }
+
   const handlePreviousPage = () => {
-    setOrder(null)
+    setOrder(null) // resets order ascending/descending
 
     if (page !== 0) {
       setPage(page - 1)
@@ -140,8 +140,9 @@ const EmployeeListTable = () => {
   }
 
   const handleNextPage = () => {
-    setOrder(null)
-    if (allEntries && page + 1 < allEntries.length) {
+    setOrder(null) // resets order ascending/descending
+
+    if (page + 1 < allEntries.length) {
       setPage(page + 1)
       setSortedData(allEntries[page + 1])
 
@@ -184,6 +185,7 @@ const EmployeeListTable = () => {
           }}
         ></input>
       </div>
+
       <table>
         <thead>
           <tr>

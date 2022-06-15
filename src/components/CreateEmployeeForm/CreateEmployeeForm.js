@@ -30,40 +30,40 @@ const CreateEmployeeForm = () => {
   }
 
   return (
-    <form className="createEmployeeForm" onSubmit={handleSubmit}>
-      <div className="formField">
+    <form className="create-employee-form" onSubmit={handleSubmit}>
+      <div className="form-field">
         <label>First Name </label>
         <input type="text" name="firstName" onChange={handleInput} />
       </div>
 
-      <div className="formField">
+      <div className="form-field">
         <label>Last Name </label>
         <input type="text" name="lastName" onChange={handleInput} />
       </div>
 
-      <div className="formField">
+      <div className="form-field">
         <label>Date of birth </label>
         <input type="date" name="dateOfBirth" onChange={handleInput} />
       </div>
 
-      <div className="formField">
+      <div className="form-field">
         <label>Start date </label>
         <input type="date" name="startDate" onChange={handleInput} />
       </div>
 
       <fieldset className="addressField">
         <legend>Address</legend>
-        <div className="formField">
+        <div className="form-field">
           <label>Street </label>
           <input type="text" name="street" onChange={handleInput} />
         </div>
 
-        <div className="formField">
+        <div className="form-field">
           <label>City </label>
           <input type="text" name="city" onChange={handleInput} />
         </div>
 
-        <div className="formField">
+        <div className="form-field">
           <label>State </label>
           <select
             type="select"
@@ -136,13 +136,13 @@ const CreateEmployeeForm = () => {
           </select>
         </div>
 
-        <div className="formField">
+        <div className="form-field">
           <label>Zip Code </label>
           <input type="number" name="zipCode" onChange={handleInput} />
         </div>
       </fieldset>
 
-      <div className="formField">
+      <div className="form-field">
         <label>Department </label>
         <select
           type="select"
@@ -163,7 +163,7 @@ const CreateEmployeeForm = () => {
 
       <div className="line-break"></div>
 
-      <input type="submit" value="Save" className="formSubmitBtn" />
+      <input type="submit" value="Save" className="form-submit-btn" />
     </form>
   )
 }
