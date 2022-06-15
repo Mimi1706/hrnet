@@ -7,12 +7,22 @@ import { employeeListTest } from "../../data/employeeListTest"
 
 const EmployeeListTable = () => {
   //const employeeList = useSelector((state) => state.savedEmployees.employeeList)
-
   const employeeList = employeeListTest
 
   const [selectedField, setSelectedField] = useState(null)
   const [order, setOrder] = useState(true) // true is ascending / false is descending
   const [sortedData, setSortedData] = useState(employeeList)
+
+  // Used when user selected "show ** entries"
+  const [allEntries, setAllEntries] = useState(null)
+  let [page, setPage] = useState(0)
+
+  const [selectedEntry, setSelectedEntry] = useState(null)
+  let showEntries = [5, 10, 25, 100]
+
+  // Displays the number of entries
+  const [previousEntries, setPreviousEntries] = useState(1)
+  const [currentEntries, setCurrentEntries] = useState(employeeList.length)
 
   const columns = [
     { label: "First Name", accessor: "firstName" },
@@ -27,6 +37,7 @@ const EmployeeListTable = () => {
   ]
 
   // Sorts by ascending or descending
+  // RESET ARROW TO TOP AT EACH CLICK ON A COLUMN
   const handleSorting = (accessor) => {
     setSelectedField(accessor)
 
@@ -55,17 +66,74 @@ const EmployeeListTable = () => {
 
   //console.log(order)
 
-  // Search bar
-  const handleInput = (input) => {
+  const handleSearch = (input) => {
+    let sortedInput = null
+
+    // Only looks for employee displayed if "show ** entries" was selected
+    if (allEntries !== null) {
+      sortedInput = allEntries[page].filter((employee) =>
+        Object.values(employee.employee)
+          .join(" ")
+          .toLocaleLowerCase()
+          .includes(input.toLocaleLowerCase())
+      )
+    }
     // Takes each employee of the employeeList, joins the informations together in lowercase and compares it to the input to filter
-    let sortedInput = employeeList.filter((employee) =>
-      Object.values(employee.employee)
-        .join(" ")
-        .toLocaleLowerCase()
-        .includes(input.toLocaleLowerCase())
-    )
+    else {
+      sortedInput = employeeList.filter((employee) =>
+        Object.values(employee.employee)
+          .join(" ")
+          .toLocaleLowerCase()
+          .includes(input.toLocaleLowerCase())
+      )
+    }
 
     setSortedData(sortedInput)
+  }
+
+  const handleShowEntries = (entries) => {
+    // Resets entries display and page number
+    setSelectedEntry(entries)
+    setPreviousEntries(1)
+    setPage(0)
+
+    // if the number of employees is smaller than the "show ** entries" chosen, the max number displayed will be the total number of employees
+    entries > employeeList.length
+      ? setCurrentEntries(employeeList.length)
+      : setCurrentEntries(entries)
+
+    let allChunks = []
+    // Cuts the employee list in several chunks to display in pages
+    for (let i = 0; i < employeeList.length; i += entries) {
+      let chunk = employeeList.slice(i, i + entries)
+      allChunks.push(chunk)
+    }
+    setSortedData(allChunks[0])
+    setAllEntries(allChunks)
+  }
+
+  const handlePreviousPage = () => {
+    if (page !== 0) {
+      setPage(page - 1)
+      setSortedData(allEntries[page - 1])
+
+      if (previousEntries !== 0) {
+        setPreviousEntries(previousEntries - selectedEntry)
+        setCurrentEntries(currentEntries - allEntries[page].length)
+      }
+    }
+  }
+
+  const handleNextPage = () => {
+    if (allEntries && page + 1 < allEntries.length) {
+      setPage(page + 1)
+      setSortedData(allEntries[page + 1])
+
+      if (employeeList.length > currentEntries) {
+        setPreviousEntries(previousEntries + selectedEntry)
+        setCurrentEntries(currentEntries + allEntries[page + 1].length)
+      }
+    }
   }
 
   return (
@@ -74,7 +142,11 @@ const EmployeeListTable = () => {
         <div>
           Show
           <select className="show-select" type="select" placeholder="Search...">
-            <option>10</option>
+            {showEntries.map((entries, index) => (
+              <option key={index} onClick={() => handleShowEntries(entries)}>
+                {entries}
+              </option>
+            ))}
           </select>
           Entries
         </div>
@@ -84,7 +156,7 @@ const EmployeeListTable = () => {
           placeholder="Search..."
           name="searchBar"
           onChange={(e) => {
-            handleInput(e.target.value)
+            handleSearch(e.target.value)
           }}
         ></input>
       </div>
@@ -120,7 +192,7 @@ const EmployeeListTable = () => {
             })}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="table-body">
           {sortedData.map(({ employee }, index) => {
             return (
               <tr key={`employee-${index}`}>
@@ -137,7 +209,21 @@ const EmployeeListTable = () => {
         </tbody>
       </table>
 
-      <span>Hello</span>
+      <div className="entries-pages">
+        <span>{allEntries ? page + 1 + "/" + allEntries.length : "1/1"}</span>
+        <span className="entries-total">
+          Showing
+          {" " + previousEntries + " "}
+          to
+          {" " + currentEntries + " "}
+          of {employeeList.length} entries
+        </span>
+
+        <div>
+          <button onClick={handlePreviousPage}>&#8592;</button>
+          <button onClick={handleNextPage}>&#8594;</button>
+        </div>
+      </div>
     </>
   )
 }
