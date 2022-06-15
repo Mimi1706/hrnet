@@ -163,7 +163,7 @@ const EmployeeListTable = () => {
             type="select"
             defaultValue="All"
             onChange={(e) => {
-              // Added for Chrome/Safari
+              // For Chrome/Safari
               if (e.target.value === "All") {
                 handleShowAllEntries()
               } else {
@@ -171,15 +171,9 @@ const EmployeeListTable = () => {
               }
             }}
           >
-            <option value="All" onClick={() => handleShowAllEntries()}>
-              All
-            </option>
+            <option value="All">All</option>
             {showEntries.map((entries, index) => (
-              <option
-                key={index}
-                onClick={() => handleShowEntries(entries)}
-                value={entries}
-              >
+              <option key={index} value={entries}>
                 {entries}
               </option>
             ))}
