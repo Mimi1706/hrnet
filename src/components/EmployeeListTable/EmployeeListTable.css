@@ -33,11 +33,12 @@ th {
   display: flex;
   position: absolute;
   flex-direction: column;
-  top: 30%;
-  right: 8%;
-  font-size: 0.8em;
-  pointer-events: none;
+  top: 27%;
+  right: 2%;
+  font-size: 0.9em;
   color: #23454d;
+  cursor: pointer;
+  width: 2em;
 }
 
 .arrow-selected {

@@ -37,39 +37,40 @@ const EmployeeListTable = () => {
   ]
 
   // Sorts by ascending or descending
-  // RESET ARROW TO TOP AT EACH CLICK ON A COLUMN
-  const handleSorting = (accessor) => {
-    setSelectedField(accessor)
-
-    setOrder(!order)
-
-    // Sets order by ascending
-    if (order === true) {
+  const handleAscending = (accessor) => {
+    if (order === false || order === null) {
+      setSelectedField(accessor)
+      setOrder(true)
       setSortedData(
         [...sortedData].sort((a, b) =>
           a.employee[accessor].localeCompare(b.employee[accessor])
         )
       )
+    } else {
+      setOrder(null)
+      allEntries ? setSortedData(allEntries[page]) : setSortedData(employeeList)
     }
+  }
 
-    // Sets order by descending
-    else {
+  const handleDescending = (accessor) => {
+    if (order === true || order === null) {
+      setSelectedField(accessor)
+      setOrder(false)
       setSortedData(
         [...sortedData].sort((b, a) =>
           a.employee[accessor].localeCompare(b.employee[accessor])
         )
       )
+    } else {
+      setOrder(null)
+      allEntries ? setSortedData(allEntries[page]) : setSortedData(employeeList)
     }
-
-    //console.log("the order inside is " + order)
   }
-
-  //console.log(order)
 
   const handleSearch = (input) => {
     let sortedInput = null
 
-    // Only looks for employee displayed if "show ** entries" was selected
+    // Only looks for employee displayed if a "show ** entries" number was selected
     if (allEntries !== null) {
       sortedInput = allEntries[page].filter((employee) =>
         Object.values(employee.employee)
@@ -92,12 +93,14 @@ const EmployeeListTable = () => {
   }
 
   const handleShowEntries = (entries) => {
-    // Resets entries display and page number
-    setSelectedEntry(entries)
+    setOrder(null) // Resets ascending/descending
+    setSelectedEntry(entries) // Saves the number picked in show entries
+
+    // Resets all entries display and page number
     setPreviousEntries(1)
     setPage(0)
 
-    // if the number of employees is smaller than the "show ** entries" chosen, the max number displayed will be the total number of employees
+    // if the number of employees is smaller than the "show ** entries" number chosen, the max number displayed will be the total number of employees
     entries > employeeList.length
       ? setCurrentEntries(employeeList.length)
       : setCurrentEntries(entries)
@@ -113,6 +116,7 @@ const EmployeeListTable = () => {
   }
 
   const handlePreviousPage = () => {
+    setOrder(null)
     if (page !== 0) {
       setPage(page - 1)
       setSortedData(allEntries[page - 1])
@@ -125,6 +129,7 @@ const EmployeeListTable = () => {
   }
 
   const handleNextPage = () => {
+    setOrder(null)
     if (allEntries && page + 1 < allEntries.length) {
       setPage(page + 1)
       setSortedData(allEntries[page + 1])
@@ -165,12 +170,13 @@ const EmployeeListTable = () => {
           <tr>
             {columns.map(({ label, accessor }) => {
               return (
-                <th key={accessor} onClick={() => handleSorting(accessor)}>
-                  {label}
+                <th key={accessor} className="table-head-cell">
+                  <span>{label}</span>
                   <div className="arrows">
                     <span
+                      onClick={() => handleAscending(accessor)}
                       className={
-                        order === false && accessor === selectedField // checks if the selected column is the same as the clicked column
+                        order === true && accessor === selectedField // checks if the selected column is the same as the clicked column
                           ? "arrow-selected"
                           : ""
                       }
@@ -178,8 +184,9 @@ const EmployeeListTable = () => {
                       &#9650;
                     </span>
                     <span
+                      onClick={() => handleDescending(accessor)}
                       className={
-                        order === true && accessor === selectedField // checks if the selected column is the same as the clicked column
+                        order === false && accessor === selectedField // checks if the selected column is the same as the clicked column
                           ? "arrow-selected"
                           : ""
                       }
