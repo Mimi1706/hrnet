@@ -92,21 +92,22 @@ const EmployeeListTable = () => {
 
   const handleShowEntries = (entries) => {
     setOrder(null) // Resets ascending/descending
-    setSelectedEntry(entries) // Saves the number picked in show entries
+    setSelectedEntry(parseInt(entries)) // Saves the number picked in show entries + parseInt added for Chrome/Safari
 
     // Resets all entries display and page number
     setPreviousEntries(1)
     setPage(0)
 
     // if the number of employees is smaller than the "show ** entries" number chosen, the max number displayed will be the total number of employees
-    entries > employeeList.length
+    parseInt(entries) > employeeList.length
       ? setCurrentEntries(employeeList.length)
-      : setCurrentEntries(entries)
+      : setCurrentEntries(parseInt(entries))
 
     let allChunks = []
+
     // Cuts the employee list in several chunks to display in pages
-    for (let i = 0; i < employeeList.length; i += entries) {
-      let chunk = employeeList.slice(i, i + entries)
+    for (let i = 0; i < employeeList.length; i += parseInt(entries)) {
+      let chunk = employeeList.slice(i, i + parseInt(entries))
       allChunks.push(chunk)
     }
 
@@ -141,7 +142,7 @@ const EmployeeListTable = () => {
   const handleNextPage = () => {
     setOrder(null) // resets order ascending/descending
 
-    if (page + 1 < allEntries.length) {
+    if (allEntries && page + 1 < allEntries.length) {
       setPage(page + 1)
       setSortedData(allEntries[page + 1])
 
@@ -160,14 +161,24 @@ const EmployeeListTable = () => {
           <select
             className="show-select"
             type="select"
-            placeholder="Search..."
             defaultValue="All"
+            onChange={(e) => {
+              if (e.target.value === "All") {
+                handleShowAllEntries()
+              } else {
+                handleShowEntries(e.target.value)
+              }
+            }}
           >
             <option value="All" onClick={() => handleShowAllEntries()}>
               All
             </option>
             {showEntries.map((entries, index) => (
-              <option key={index} onClick={() => handleShowEntries(entries)}>
+              <option
+                key={index}
+                onClick={() => handleShowEntries(entries)}
+                value={entries}
+              >
                 {entries}
               </option>
             ))}

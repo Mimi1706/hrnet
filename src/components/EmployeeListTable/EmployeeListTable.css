@@ -26,18 +26,21 @@ th {
   color: white;
   font-weight: 600;
   position: relative;
+  height: 3em;
 }
 
 .arrows {
   display: flex;
   position: absolute;
   flex-direction: column;
-  top: 27%;
-  right: 2%;
-  font-size: 0.9em;
+  justify-content: center;
+  right: 0;
+  top: 25%;
+  font-size: 1em;
   color: #23454d;
   cursor: pointer;
   width: 2em;
+  height: 3em;
 }
 
 .arrow-selected {
@@ -50,6 +53,10 @@ tr {
 
 td {
   padding: 0.8em;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(246, 246, 246);
 }
 
 .entries-pages {
