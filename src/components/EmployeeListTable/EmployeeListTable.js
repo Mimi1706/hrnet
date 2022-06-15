@@ -92,6 +92,16 @@ const EmployeeListTable = () => {
     setSortedData(sortedInput)
   }
 
+  const handleShowAllEntries = () => {
+    setSelectedEntry(null) // resets "show ** entries" number
+    setOrder(null) // resets order ascending/descending
+    setSortedData(employeeList) //
+    setAllEntries(null) // clears the chunks
+    setPage(0) // resets page number
+    setPreviousEntries(1) // resets previous entries number
+    setCurrentEntries(employeeList.length) // resets current entries number
+  }
+
   const handleShowEntries = (entries) => {
     setOrder(null) // Resets ascending/descending
     setSelectedEntry(entries) // Saves the number picked in show entries
@@ -117,6 +127,7 @@ const EmployeeListTable = () => {
 
   const handlePreviousPage = () => {
     setOrder(null)
+
     if (page !== 0) {
       setPage(page - 1)
       setSortedData(allEntries[page - 1])
@@ -146,7 +157,15 @@ const EmployeeListTable = () => {
       <div className="show-search">
         <div>
           Show
-          <select className="show-select" type="select" placeholder="Search...">
+          <select
+            className="show-select"
+            type="select"
+            placeholder="Search..."
+            defaultValue="All"
+          >
+            <option value="All" onClick={() => handleShowAllEntries()}>
+              All
+            </option>
             {showEntries.map((entries, index) => (
               <option key={index} onClick={() => handleShowEntries(entries)}>
                 {entries}
