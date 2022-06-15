@@ -163,6 +163,7 @@ const EmployeeListTable = () => {
             type="select"
             defaultValue="All"
             onChange={(e) => {
+              // Added for Chrome/Safari
               if (e.target.value === "All") {
                 handleShowAllEntries()
               } else {
