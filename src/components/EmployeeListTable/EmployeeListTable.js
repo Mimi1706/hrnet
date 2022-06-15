@@ -8,19 +8,18 @@ import { employeeListTest } from "../../data/employeeListTest"
 const EmployeeListTable = () => {
   //const employeeList = useSelector((state) => state.savedEmployees.employeeList)
   const employeeList = employeeListTest
+  const [sortedData, setSortedData] = useState(employeeList) // data displayed in the table
 
-  const [selectedField, setSelectedField] = useState(null)
   const [order, setOrder] = useState(true) // true is ascending / false is descending
-  const [sortedData, setSortedData] = useState(employeeList)
+  const [selectedField, setSelectedField] = useState(null)
 
-  // Used when user selected "show ** entries"
+  // Used when user selects a "show ** entries" number
   const [allEntries, setAllEntries] = useState(null)
   let [page, setPage] = useState(0)
-
   const [selectedEntry, setSelectedEntry] = useState(null)
   let showEntries = [5, 10, 25, 100]
 
-  // Displays the number of entries
+  // Used to display the number of entries
   const [previousEntries, setPreviousEntries] = useState(1)
   const [currentEntries, setCurrentEntries] = useState(employeeList.length)
 
