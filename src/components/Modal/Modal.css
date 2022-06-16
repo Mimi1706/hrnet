@@ -1,0 +1,26 @@
+.hidden {
+  display: none;
+}
+
+.modal-window {
+  position: absolute;
+  top: 30%;
+  background-color: white;
+  border: solid 2px #458e68;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  height: 10em;
+}
+
+.modal-window button {
+  width: 5em;
+  margin-top: 2em;
+  padding: 0.5em;
+  background-color: #458e68;
+  color: white;
+  font-size: 1em;
+  font-weight: 500;
+}

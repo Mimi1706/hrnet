@@ -1,3 +1,31 @@
+.hidden {
+  display: none;
+}
+
+.modal-window {
+  position: absolute;
+  top: 30vh;
+  padding: 1em;
+  background-color: white;
+  border: solid 5px #458e68;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20em;
+  height: 10em;
+}
+
+.modal-window button {
+  width: 5em;
+  margin-top: 2em;
+  padding: 0.5em;
+  background-color: #458e68;
+  color: white;
+  font-size: 1em;
+  font-weight: 500;
+}
+
 .create-employee-form {
   display: flex;
   justify-content: space-around;
@@ -58,7 +86,6 @@
   color: white;
   font-size: 1em;
   font-weight: 500;
-  float: left;
 }
 
 @media (max-width: 920px) {

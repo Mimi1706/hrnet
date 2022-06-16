@@ -6,8 +6,8 @@ import { useState } from "react"
 import { employeeListTest } from "../../data/employeeListTest"
 
 const EmployeeListTable = () => {
-  //const employeeList = useSelector((state) => state.savedEmployees.employeeList)
-  const employeeList = employeeListTest
+  const employeeList = useSelector((state) => state.savedEmployees.employeeList)
+  //const employeeList = employeeListTest
   const [sortedData, setSortedData] = useState(employeeList) // data displayed in the table
 
   const [order, setOrder] = useState(true) // true is ascending / false is descending
@@ -36,6 +36,7 @@ const EmployeeListTable = () => {
   ]
 
   const handleAscending = (accessor) => {
+    // checks if an order exist and is descending (to switch to ascending) + if the column selected is not the same one
     if (order === false || order === null || selectedField !== accessor) {
       setSelectedField(accessor)
       setOrder(true)
@@ -51,6 +52,7 @@ const EmployeeListTable = () => {
   }
 
   const handleDescending = (accessor) => {
+    // checks if an order exist and is ascending (to switch to descending) + if the column selected is not the same one
     if (order === true || order === null || selectedField !== accessor) {
       setSelectedField(accessor)
       setOrder(false)
@@ -68,7 +70,7 @@ const EmployeeListTable = () => {
   const handleSearch = (input) => {
     let sortedInput = null
 
-    // Only looks for employee displayed if a "show ** entries" number was selected
+    // Only looks for the employees displayed if a "show ** entries" number was selected
     if (allEntries !== null) {
       sortedInput = allEntries[page].filter((employee) =>
         Object.values(employee.employee)
