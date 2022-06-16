@@ -26,8 +26,8 @@ const CreateEmployeeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    e.target.reset() // Clear the form
     dispatch(save(employee))
+    e.target.reset() // Clear the form
     window.scrollTo(0, 0) // Return to the top of the page
     setModalDisplay(true) // Display the success modal
   }
