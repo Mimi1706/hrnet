@@ -1,13 +1,10 @@
 import "./Modal.css"
-import { useState } from "react"
 
-const Modal = () => {
-  const [modalDisplay, setModalDisplay] = useState(false)
-
+const Modal = (props) => {
   return (
-    <div className={modalDisplay === true ? "modal-window" : "hidden"}>
+    <div className={props.display === true ? "modal-window" : "hidden"}>
       <span>Employee successfully created.</span>
-      <button onClick={() => setModalDisplay(false)}>Close</button>
+      <button onClick={props.action}>Close</button>
     </div>
   )
 }

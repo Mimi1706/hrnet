@@ -34,10 +34,7 @@ const CreateEmployeeForm = () => {
 
   return (
     <>
-      <div className={modalDisplay === true ? "modal-window" : "hidden"}>
-        <span>Employee successfully created.</span>
-        <button onClick={() => setModalDisplay(false)}>Close</button>
-      </div>
+      <Modal action={() => setModalDisplay(false)} display={modalDisplay}/>
 
       <form className="create-employee-form" onSubmit={handleSubmit}>
         <div className="form-field">
