@@ -7,7 +7,7 @@ import { employeeListTest } from "../../data/employeeListTest"
 
 const EmployeeListTable = () => {
   const employeeList = useSelector((state) => state.savedEmployees.employeeList)
-  //const employeeList = employeeListTest
+  // const employeeList = employeeListTest
   const [sortedData, setSortedData] = useState(employeeList) // data displayed in the table
 
   const [order, setOrder] = useState(true) // true is ascending / false is descending
@@ -255,8 +255,8 @@ const EmployeeListTable = () => {
         </span>
 
         <div>
-          <button onClick={handlePreviousPage}>&#8592;</button>
-          <button onClick={handleNextPage}>&#8594;</button>
+          <button onClick={handlePreviousPage} aria-label="next table page">&#8592;</button>
+          <button onClick={handleNextPage} aria-label="previous table page">&#8594;</button>
         </div>
       </div>
     </>

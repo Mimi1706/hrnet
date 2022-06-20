@@ -40,34 +40,34 @@ const CreateEmployeeForm = () => {
       <form className="create-employee-form" onSubmit={handleSubmit}>
         <div className="form-field">
           <label>First Name </label>
-          <input type="text" name="firstName" onChange={handleInput} required />
+          <input type="text" name="firstName" onChange={handleInput} aria-label="employee's first name" required/>
         </div>
 
         <div className="form-field">
           <label>Last Name </label>
-          <input type="text" name="lastName" onChange={handleInput} required />
+          <input type="text" name="lastName" onChange={handleInput} aria-label="employee's last name" required />
         </div>
 
         <div className="form-field">
           <label>Date of birth </label>
-          <input type="date" name="dateOfBirth" onChange={handleInput} />
+          <input type="date" name="dateOfBirth" onChange={handleInput} aria-label="employee's birthdate"/>
         </div>
 
         <div className="form-field">
           <label>Start date </label>
-          <input type="date" name="startDate" onChange={handleInput} />
+          <input type="date" name="startDate" onChange={handleInput} aria-label="employee's start date"/>
         </div>
 
         <fieldset className="addressField">
           <legend>Address</legend>
           <div className="form-field">
             <label>Street </label>
-            <input type="text" name="street" onChange={handleInput} />
+            <input type="text" name="street" onChange={handleInput} aria-label="employee's street"/>
           </div>
 
           <div className="form-field">
             <label>City </label>
-            <input type="text" name="city" onChange={handleInput} />
+            <input type="text" name="city" onChange={handleInput} aria-label="employee's city"/>
           </div>
 
           <div className="form-field">
@@ -77,6 +77,7 @@ const CreateEmployeeForm = () => {
               name="state"
               defaultValue=""
               onChange={handleInput}
+              aria-label="employee's state"
             >
               <option disabled value="">
                 Please Select
@@ -145,7 +146,7 @@ const CreateEmployeeForm = () => {
 
           <div className="form-field">
             <label>Zip Code </label>
-            <input type="number" name="zipCode" onChange={handleInput} />
+            <input type="number" name="zipCode" onChange={handleInput} aria-label="employee's zip code"/>
           </div>
         </fieldset>
         <div className="form-field">
@@ -155,6 +156,7 @@ const CreateEmployeeForm = () => {
             name="department"
             defaultValue=""
             onChange={handleInput}
+            aria-label="employee's department"
           >
             <option disabled value="">
               Please Select
@@ -169,7 +171,7 @@ const CreateEmployeeForm = () => {
 
         <div className="line-break"></div>
 
-        <input type="submit" value="Save" className="form-submit-btn" />
+        <input type="submit" value="Save" className="form-submit-btn" aria-label="save employee"/>
       </form>
     </>
   )

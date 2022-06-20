@@ -7,7 +7,7 @@
   top: 30vh;
   padding: 1em;
   background-color: white;
-  border: solid 5px #458e68;
+  border: solid 5px #2A7648;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@
   width: 5em;
   margin-top: 2em;
   padding: 0.5em;
-  background-color: #458e68;
+  background-color: #2A7648;
   color: white;
   font-size: 1em;
   font-weight: 500;
@@ -82,7 +82,7 @@
   width: 10em;
   margin: 2em;
   padding: 0.5em;
-  background-color: #45818e;
+  background-color: #2C5E73;
   color: white;
   font-size: 1em;
   font-weight: 500;
