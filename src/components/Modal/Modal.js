@@ -1,5 +1,12 @@
 import "./Modal.css"
 
+/**
+ * 
+ * @param {boolean} props.display
+ * @param {function} props.action
+ * @returns {JSX} Modal component
+ */
+
 const Modal = (props) => {
   return (
     <div className={props.display === true ? "modal-window" : "hidden"}>

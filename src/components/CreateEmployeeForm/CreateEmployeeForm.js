@@ -5,6 +5,11 @@ import { useDispatch } from "react-redux"
 import { save } from "../../redux/actions/index"
 import Modal from "../Modal/Modal"
 
+/**
+ * 
+ * @returns {JSX} Employee creation form component
+ */
+
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch()
   const [modalDisplay, setModalDisplay] = useState(false)

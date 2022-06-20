@@ -5,6 +5,11 @@ import { useState } from "react"
 
 import { employeeListTest } from "../../data/employeeListTest"
 
+/**
+ * 
+ * @returns {JSX} Employee table list component
+ */
+
 const EmployeeListTable = () => {
   const employeeList = useSelector((state) => state.savedEmployees.employeeList)
   // const employeeList = employeeListTest

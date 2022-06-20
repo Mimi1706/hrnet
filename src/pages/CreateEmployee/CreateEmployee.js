@@ -2,6 +2,11 @@ import "./CreateEmployee.css"
 
 import CreateEmployeeForm from "../../components/CreateEmployeeForm/CreateEmployeeForm"
 
+/**
+ * Create employee list page
+ * @returns 
+ */
+
 const CreateEmployee = () => {
   return (
     <main className="createEmployeeMain">
