@@ -3,6 +3,7 @@ import "./CreateEmployeeForm.css"
 
 import { useDispatch } from "react-redux"
 import { save } from "../../redux/actions/index"
+import Modal from "../Modal/Modal"
 
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch()
