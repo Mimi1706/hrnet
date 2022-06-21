@@ -3,7 +3,7 @@ import "./CreateEmployeeForm.css"
 
 import { useDispatch } from "react-redux"
 import { save } from "../../redux/actions/index"
-import Modal from "../Modal/Modal"
+import Modal from "p14-mymodal"
 
 /**
  * 
