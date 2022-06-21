@@ -40,7 +40,7 @@ const CreateEmployeeForm = () => {
 
   return (
     <>
-      <Modal action={() => setModalDisplay(false)} display={modalDisplay}/>
+      <Modal action={() => setModalDisplay(false)} message="Employee successfully created." display={modalDisplay}/>
 
       <form className="create-employee-form" onSubmit={handleSubmit}>
         <div className="form-field">
