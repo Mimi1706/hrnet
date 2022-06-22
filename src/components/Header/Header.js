@@ -14,10 +14,10 @@ const Header = () => {
     <header>
       <h1 className="logo">HRnet</h1>
 
-      {location.pathname === "/" ? (
+      {location.pathname === "*" ? (
         <Link to={`/employee-list`}>View current employees</Link>
       ) : (
-        <Link to={`/`}>Create employee</Link>
+        <Link to={`*`}>Create employee</Link>
       )}
     </header>
   )
