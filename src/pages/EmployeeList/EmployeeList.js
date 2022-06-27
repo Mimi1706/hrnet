@@ -5,7 +5,7 @@ import EmployeeListTable from "../../components/EmployeeListTable/EmployeeListTa
 
 /**
  * Employee list page
- * @returns  
+ * @returns {JSX} 
  */
 
 

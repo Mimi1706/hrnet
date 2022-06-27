@@ -4,7 +4,7 @@ import CreateEmployeeForm from "../../components/CreateEmployeeForm/CreateEmploy
 
 /**
  * Create employee list page
- * @returns 
+ * @returns {JSX}
  */
 
 const CreateEmployee = () => {
