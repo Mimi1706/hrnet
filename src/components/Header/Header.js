@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 
 /**
- * 
- * @returns {JSX} Header
+ * Header
+ * @returns {JSX} 
  */
 
 const Header = () => {

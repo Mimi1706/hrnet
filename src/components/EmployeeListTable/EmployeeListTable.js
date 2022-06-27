@@ -6,8 +6,8 @@ import { useState } from "react"
 import { employeeListTest } from "../../data/employeeListTest"
 
 /**
- * 
- * @returns {JSX} Employee table list component
+ * Employee table list component
+ * @returns {JSX} 
  */
 
 const EmployeeListTable = () => {

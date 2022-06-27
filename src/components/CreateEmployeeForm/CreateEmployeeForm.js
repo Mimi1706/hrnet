@@ -6,8 +6,8 @@ import { save } from "../../redux/actions/index"
 import Modal from "p14-mymodal"
 
 /**
- * 
- * @returns {JSX} Employee creation form component
+ * Employee creation form component
+ * @returns {JSX} 
  */
 
 const CreateEmployeeForm = () => {
