@@ -23,7 +23,7 @@ HRnet employee creation and management app
 - [React-redux](https://react-redux.js.org): v8.0.2
 - [p14-mymodal](https://www.npmjs.com/package/p14-mymodal): v0.1.5
 
-## Installing and lauching)
+## Installing and lauching
 
 - Clone the [front-end of HRnet](https://github.com/Mimi1706/HanNguyen_13_030522)
 - Install the dependencies with `yarn install` or `npm install`
