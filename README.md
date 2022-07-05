@@ -25,7 +25,7 @@ HRnet employee creation and management app
 
 ## Installing and lauching
 
-- Clone the [front-end of HRnet](https://github.com/Mimi1706/HanNguyen_13_030522)
+- Clone the [front-end of HRnet](https://github.com/Mimi1706/HanNguyen_14_060622)
 - Install the dependencies with `yarn install` or `npm install`
 - Launch the front-end with `yarn start` or `npm run start` 
 
