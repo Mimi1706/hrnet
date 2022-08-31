@@ -3,7 +3,7 @@
 # [OpenClassrooms] - Projet 14
 **Faire passer une librairie jQuery vers React**
 
-As part of the Openclassrooms [Front-end developper course](https://openclassrooms.com/fr/paths/314-developpeur-front-end), this last project combines the use of redux and react to develop an employee creation form and an employee management table for HR purposes. One of the main objectives was to create a library that can be used in the project: here, it's a modal that pops up after filling an employee form. Everything in this project was programmed without the use of any other library. The employee management table main features are: to reorder the columns by ascending or descending, to display how many entries we want in the table then be able to navigate between the table pages, finally, there's a search feature that can be used even when the entries are filtered by display number.
+As part of the Openclassrooms [Front-end developper course](https://openclassrooms.com/fr/paths/314-developpeur-front-end), this project combines the use of redux and react to develop an employee creation form and an employee management table for HR purposes. One of the main objectives was to create a library that can be used in the project: here, it's a modal that pops up after filling the employee form. The employee management table mains features are: to reorder the columns by ascending or descending, to display how many entries we want in the table then be able to navigate between the table pages, finally, there's a search feature that can be used even when the entries are filtered by display number.
 
 ## HRnet
 
